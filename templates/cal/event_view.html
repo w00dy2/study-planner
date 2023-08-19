@@ -1,0 +1,38 @@
+{% extends 'cal/base.html' %}
+
+{% block title %}
+수업 내용
+{% endblock %}
+
+{% block content %}
+
+<div class="container my-4"> <!-- 마진을 추가한 컨테이너 -->
+    <div class="row">
+        <div class="col-md-10">
+            <h2 class="border-bottom py-2 mb-0">{{ event.title }}</h2>
+        </div>
+        <div class="col-md-2 d-flex justify-content-end align-items-center">
+            <div class="d-flex flex-column">
+                <a class="btn btn-outline-secondary btn-sm mb-2" href="{% url 'cal:event_edit' event.id %}"> 수정하기 </a>
+                <a class="btn btn-outline-danger btn-sm" href="{% url 'cal:event_delete' event.id %}"> 삭제하기 </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row my-2">
+        <div class="col-md-12"> <!-- 질문글과 추천 영역 -->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="border-bottom py-2">{{ event.description }}</h4>
+                    <p>시작 시간: {{ event.start_time }}</p>
+                    <p>종료 시간: {{ event.end_time }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <h1></h1>
+</body>
+{% endblock %}

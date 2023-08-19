@@ -38,7 +38,7 @@
                         <li><a href="{% url 'index' %}">Board</a></li>
                     </ul>
                 </li>
-                <li class="sidebar-nav-item"><a href="https://github.com/2hey9/playdata-django">GitHub</a></li>
+                <li class="sidebar-nav-item"><a href="https://github.com/w00dy2/study-planner">GitHub</a></li>
                 {% if user.is_authenticated %}
                     <li class="sidebar-nav-item"><a href="{% url 'common:logout' %}">로그아웃</a></li>
                 {% else %}
@@ -50,10 +50,10 @@
         <header class="masthead d-flex align-items-center" style="background-color: #154207;">
             <div class="container px-4 px-lg-5 text-center">
                 <h1 class="mb-1" style="color: white;">Code log</h1>
-                <h3 class="mb-3" style="color: white;"><em>Daily coding log</em></h3>
-                <a class="btn btn-outline-dark btn-xl" href="{% url 'cal:calendar' %}" style="background-color: black; color: white; font-size: 24px; padding: 10px 20px;">calendar</a>
-                <a class="btn btn-outline-dark btn-xl" href="{% url 'index' %}" style="background-color: black; color: white; font-size: 24px; padding: 10px 20px;">posting</a>
-                <p class="text-muted small mt-1" style="color: white;">플레이데이터 22기 장고 미니팀프로젝트 1팀</p>
+                <h3 class="mb-3" style="color: white;"><em>매일 코딩 로그</em></h3>
+                <a class="btn btn-outline-dark btn-xl" href="{% url 'cal:calendar' %}" style="background-color: black; color: white; font-size: 24px; padding: 10px 20px;">공부달력</a>
+                <a class="btn btn-outline-dark btn-xl" href="{% url 'index' %}" style="background-color: black; color: white; font-size: 24px; padding: 10px 20px;">게시판</a>
+                <p class="text-muted small mt-1" style="color: white;">플레이데이터 22기 장고 미니 팀프로젝트</p>
             </div>
         </header>
         <!-- Services-->

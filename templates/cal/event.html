@@ -5,9 +5,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="clearfix">
-  <a class="btn btn-outline-primary left" href="{% url 'cal:calendar' %}"> 캘린더 보기 </a>
-</div>
 
 {% if form.errors %}
     {% for field in form %}
@@ -28,7 +25,7 @@
   {% csrf_token %}
   <table class="form form-table">
     {{ form }}
-    <tr><td colspan="2"><button type="submit" class="btn btn-outline-primary right"> 제출하기 </button></td></tr>
+    <tr><td colspan="2"><button type="submit" class="btn btn-outline-primary right"> 작성하기 </button></td></tr>
   </table>
 </form>
 {% endblock %}
