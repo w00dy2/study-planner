@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-1.5">
             <div class="d-flex justify-content-center">{{ question.voter.count }}</div>
-            <a href="#" data-uri="{% url 'pybo:vote_question' question.id %}" class="recommend btn btn-sm btn-secondary btn-block my-1">추천</a>
+            <a href="#" data-uri="{% url 'board:vote_question' question.id %}" class="recommend btn btn-sm btn-secondary btn-block my-1">추천</a>
         </div>
     </div>
     <div class="row my-2">
@@ -52,10 +52,10 @@
     <!--본문 수정 및 삭제 영역 시작-->
     {% if request.user == question.author %}
     <div class="my-2">
-        <a href="{% url 'pybo:question_modify' question.id  %}"
+        <a href="{% url 'board:question_modify' question.id  %}"
            class="btn btn-sm btn-outline-secondary">수정</a>
         <a href="#" class="delete btn btn-sm btn-outline-secondary"
-           data-uri="{% url 'pybo:question_delete' question.id  %}">삭제</a>
+           data-uri="{% url 'board:question_delete' question.id  %}">삭제</a>
     </div>
     {% endif %}
     <!--본문 수정 및 삭제 영역 끝-->
@@ -74,15 +74,15 @@
                         </div>
                         <div class="col-md-2">
                             <div class="bg-light text-center p-2 border rounded font-weight-bold mb-1" style="font-size: 14px;">{{ answer.voter.count }}</div>
-                            <a href="#" data-uri="{% url 'pybo:vote_answer' answer.id %}" class="recommend btn btn-sm btn-outline-secondary btn-block my-1" style="font-size: 12px;">추천</a>
+                            <a href="#" data-uri="{% url 'board:vote_answer' answer.id %}" class="recommend btn btn-sm btn-outline-secondary btn-block my-1" style="font-size: 12px;">추천</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 d-flex justify-content-start align-items-center">
                             {% if request.user == answer.author %}
                             <div class="mx-2 text-left">
-                                <a href="{% url 'pybo:answer_modify' answer.id %}" class="btn btn-sm btn-outline-secondary">수정</a>
-                                <a href="#" class="delete btn btn-sm btn-outline-secondary" data-uri="{% url 'pybo:answer_delete' answer.id %}">삭제</a>
+                                <a href="{% url 'board:answer_modify' answer.id %}" class="btn btn-sm btn-outline-secondary">수정</a>
+                                <a href="#" class="delete btn btn-sm btn-outline-secondary" data-uri="{% url 'board:answer_delete' answer.id %}">삭제</a>
                             </div>
                             {% endif %}
                         </div>
@@ -117,8 +117,8 @@
                                         {% endif %}
                                     </span>
                                     {% if request.user == comment.author %}
-                                    <a href="{% url 'pybo:comment_modify_answer' comment.id  %}" class="small">수정</a>,
-                                    <a href="#" class="small delete" data-uri="{% url 'pybo:comment_delete_answer' comment.id  %}">삭제</a>
+                                    <a href="{% url 'board:comment_modify_answer' comment.id  %}" class="small">수정</a>,
+                                    <a href="#" class="small delete" data-uri="{% url 'board:comment_delete_answer' comment.id  %}">삭제</a>
                                     {% endif %}
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                     </div>
                     {% endif %}
                     <div>
-                        <a href="{% url 'pybo:comment_create_answer' answer.id  %}"
+                        <a href="{% url 'board:comment_create_answer' answer.id  %}"
                            class="small"><small>댓글 추가 ..</small></a>
                     </div>
                     <!--대댓글 영역끝-->
@@ -136,7 +136,7 @@
         </div>
     </div>
     {% endfor %}
-    <form action="{% url 'pybo:answer_create' question.id %}" method="post" class="my-3">
+    <form action="{% url 'board:answer_create' question.id %}" method="post" class="my-3">
         {% csrf_token %}
         {% if form.errors %}
         <div class="alert alert-danger" role="alert">

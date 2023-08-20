@@ -1,6 +1,6 @@
 from django import forms
 
-from pybo.models import Question, Answer, Comment
+from board.models import Question, Answer, Comment
 
 
 
