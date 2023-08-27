@@ -4,6 +4,6 @@ class CalConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'cal'
 
-class PyboConfig(AppConfig):
+class BoardConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'pybo'
+    name = 'board'

@@ -2,71 +2,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
-    <!-- pybo CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>Study note!</title>
     <style>
         .container {
             margin-top: 50px;
-        }
-        .chat-room-container {
-            display: flex;
-            flex-direction: column; /* 세로 방향으로 정렬 */
-            align-items: center; /* 가운데 정렬 */
-            justify-content: flex-start;
-            background-color: #154207;
-            border-radius: 10px; /* 둥근 모서리를 위한 값 */
-        }
-        .chat-room h1 {
-            font-size: 24px;
-            color: white;
-        }
-        .chat-log {
-            width: 100%;
-            max-height: 300px; /* 최대 높이 지정 */
-            overflow-y: auto; /* 내용이 넘칠 경우 스크롤 생성 */
-            padding: 10px;
-            margin-bottom: 10px; /* 아래 여백 추가 */
-            border: 1px solid #ccc;
-            resize: none;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        .chat-input {
-            width: 100%; /* 너비 100%로 설정 */
-            margin-bottom: 10px; /* 아래 여백 추가 */
-            padding: 10px;
-            font-size: 14px;
-            line-height: 1.5;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .chat-submit-button {
-            margin-bottom: 10px; /* 아래 여백 추가 */
-            padding: 10px 10px;
-            font-size: 14px;
-            font-weight: bold;
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .delete-log-button {
-            margin-bottom: 10px;
-            padding: 10px 10px;
-            font-size: 14px;
-            font-weight: bold;
-            background-color: #DC3545;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -77,7 +20,7 @@
             <div class="col-md-3" style="padding:5px;">
                 <div class="chat-room-container">
                     <div class="chat-room text-center">
-                        <h1 style="margin: 5px 0px 5px 0px; font-weight: bold;">Chat Room</h1>
+                        <h1 style="margin: 5px 0; font-weight: bold;">Chat Room</h1>
                         <textarea id="chat-log" class="chat-log" cols="30" rows="20" readonly></textarea><br>
                         <div class="d-flex justify-content-center">
                             <input id="chat-message-input" class="chat-input" type="text" placeholder="여기에 지식 나누기">
@@ -88,10 +31,8 @@
                 </div>
             </div>
             <div class="col">
-                <!-- 기본 템플릿 안에 삽입될 내용 Start -->
                 {% block content %}
                 {% endblock %}
-                <!--Start of Tawk.to Script-->
                 <script type="text/javascript">
                     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
                     (function(){
@@ -103,18 +44,13 @@
                     s0.parentNode.insertBefore(s1,s0);
                     })();
                 </script>
-                <!--End of Tawk.to Script-->
-                <!-- jQuery JS -->
                 <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
-                <!-- Bootstrap JS -->
                 <script src="{% static 'bootstrap.min.js' %}"></script>
-                <!-- 자바스크립트 Start -->
                 <script>
                     const chatLog = document.querySelector('#chat-log');
                     const messageInputDom = document.querySelector('#chat-message-input');
                     const submitButtonDom = document.querySelector('#chat-message-submit');
                     const deleteLogButtonDom = document.querySelector('#delete-log-button');
-                    // Load chat messages from localStorage
                     const savedMessages = localStorage.getItem('chatMessages');
                     if (savedMessages) {
                         chatLog.value = savedMessages;
@@ -124,17 +60,14 @@
                         if (message !== '') {
                             chatLog.value += (message + '\n');
                             messageInputDom.value = '';
-                            // Save chat messages to localStorage
                             localStorage.setItem('chatMessages', chatLog.value);
                         }
                     });
                     deleteLogButtonDom.addEventListener('click', function(e) {
                         chatLog.value = '';
-                        // Remove chat messages from localStorage
                         localStorage.removeItem('chatMessages');
                     });
                 </script>
-                <!-- 자바스크립트 End -->
             </div>
         </div>
     </div>
